@@ -2,12 +2,12 @@
 =============================================================================
 INTERVIEW PROBLEM 4: Biomarker Alert Monitor
 Difficulty: Senior Software Engineer | Estimated time: 45 min
-Company context: Virta Health — Care Delivery Engineering
+Company context: Health Tech
 =============================================================================
 
 CONTEXT
 -------
-Virta Health delivers remote clinical care for type 2 diabetes reversal.
+<health tech co> delivers remote clinical care for type 2 diabetes reversal.
 Patients use connected glucometers and ketone meters that sync readings into
 the Virta app several times per day. The care team dashboard needs to surface
 patients whose numbers have been out of target range for multiple consecutive
@@ -50,27 +50,28 @@ from dataclasses import dataclass, field
 from datetime import date
 from typing import Optional
 
-
 # ---------------------------------------------------------------------------
 # PRE-GIVEN — do not modify
 # ---------------------------------------------------------------------------
 
-GLUCOSE_RANGE = (70.0, 180.0)   # mg/dL, inclusive
-KETONE_RANGE  = (0.5, 3.0)      # mmol/L, inclusive
+GLUCOSE_RANGE = (70.0, 180.0)  # mg/dL, inclusive
+KETONE_RANGE = (0.5, 3.0)  # mmol/L, inclusive
 
 
 @dataclass
 class BiomarkerReading:
     """A single biomarker measurement from a patient device or manual entry."""
-    patient_id:   str
-    reading_type: str    # "glucose" | "ketone" | "weight"
-    value:        float
-    recorded_on:  date
+
+    patient_id: str
+    reading_type: str  # "glucose" | "ketone" | "weight"
+    value: float
+    recorded_on: date
 
 
 # ---------------------------------------------------------------------------
 # YOUR IMPLEMENTATION
 # ---------------------------------------------------------------------------
+
 
 class BiomarkerMonitor:
     """
