@@ -17,7 +17,8 @@
     "test:05": "playwright test tests/test_problem_05_campaign_dashboard.spec.js",
     "test:06": "playwright test tests/test_problem_06_fundraising_leaderboard.spec.js",
     "test:07": "playwright test tests/test_problem_07_submission_queue.spec.js",
-    "test:08": "playwright test tests/test_problem_08_claims_tracker.spec.js"
+    "test:08": "playwright test tests/test_problem_08_claims_tracker.spec.js",
+    "test:09": "playwright test tests/test_problem_09_work_order_queue.spec.js"
   },
   "dependencies": {
     "react": "^18.3.1",

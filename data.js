@@ -369,6 +369,17 @@ const PROBLEMS = [
     level: "senior"
   },
   {
+    path: "react/practice_problems/problem_09_work_order_queue.jsx",
+    test: "react/tests/test_problem_09_work_order_queue.spec.js",
+    title: "Role-Scoped Work-Order Queue",
+    description: "Build a multi-tenant work-order queue with role-scoped visibility, search and status filtering, and optimistic status updates with in-flight feedback.",
+    language: "react",
+    industry: "general",
+    tags: ["filtering", "controlled-inputs", "optimistic-updates", "conditional-rendering", "useMemo"],
+    parts: 3,
+    level: "senior"
+  },
+  {
     path: "typescript/practice_problems/problem_01_donation_processor.ts",
     test: "typescript/tests/test_problem_01_donation_processor.test.ts",
     title: "Donation Processor",
@@ -420,6 +431,28 @@ const PROBLEMS = [
     language: "typescript",
     industry: "ed-tech",
     tags: ["event-driven", "time-window", "challenge-tracking", "custom-types"],
+    parts: 3,
+    level: "senior"
+  },
+  {
+    path: "typescript/practice_problems/problem_06_tenant_authorization.ts",
+    test: "typescript/tests/test_problem_06_tenant_authorization.test.ts",
+    title: "Multi-Tenant Workflow Authorization",
+    description: "Build an authorization service for organization-scoped workflow resources with role inheritance, least-privilege checks, and an audit log of decisions.",
+    language: "typescript",
+    industry: "general",
+    tags: ["rbac", "multi-tenancy", "audit-trail", "custom-types", "permissions"],
+    parts: 3,
+    level: "senior"
+  },
+  {
+    path: "python/practice_problems/problem_18_integration_event_processor.py",
+    test: "python/tests/test_problem_18_integration_event_processor.py",
+    title: "Idempotent Integration Event Processor",
+    description: "Build an integration boundary that deduplicates webhook retries, tracks processing attempts, schedules retries, and supports dead-letter replay.",
+    language: "python",
+    industry: "general",
+    tags: ["idempotency", "event-driven", "retries", "dead-letter", "webhooks"],
     parts: 3,
     level: "senior"
   },

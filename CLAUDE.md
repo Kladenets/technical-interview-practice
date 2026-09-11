@@ -7,6 +7,19 @@ For language-specific instructions, see:
 - **TypeScript:** [`typescript/CLAUDE.md`](typescript/CLAUDE.md)
 - **Go:** [`golang/CLAUDE.md`](golang/CLAUDE.md)
 
+## Job-specific interview context
+
+Role-specific research and preparation plans live under
+[`interview_context/`](interview_context/). When generating a problem for a
+specific role, read that role's interview brief, job description, and crash
+course before choosing the domain, stack, constraints, and follow-up topics.
+Use context to shape a generic, standalone exercise; do not copy company names,
+proprietary details, or real interview questions into a problem. The context
+layer must not change the existing stub, test, answer, or `data.js` conventions.
+
+Use [`interview_context/_template/`](interview_context/_template/) when adding
+another target role.
+
 ## Repo structure
 
 ```

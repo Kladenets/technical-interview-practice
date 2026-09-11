@@ -13,6 +13,15 @@ A collection of Software Engineer practice problems with test suites, designed t
 - Practice problems should be strive to realistic represent practice problems an SWE might encounter in a real technical interview
 - This repo is meant to be used locally
 
+## Job-specific context
+
+Role-specific job descriptions, strategy, and crash-course documents live in
+[`interview_context/`](interview_context/). The current Onsemble bundle is in
+[`interview_context/onsemble/`](interview_context/onsemble/), with a reusable
+profile template in [`interview_context/_template/`](interview_context/_template/).
+Agents should read the relevant context before generating a problem, then use
+the normal language directory, test suite, and `data.js` catalog conventions.
+
 ## Repo structure
 More directories may be added over time as problems in different languages are added, but the overall structure should stay the same.
 
