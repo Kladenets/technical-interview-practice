@@ -20,7 +20,7 @@ python3.11 -m venv .venv && .venv/bin/pip install pytest
 ## Workflow per problem
 
 1. Problem file has the prompt + empty stubs.
-2. User copies the problem file to `practice_problem_answers/cw_answer_XX_<name>.py` and implements it there.
+2. User copies the problem file to `practice_problem_answers/kk_answer_XX_<name>.py` and implements it there. The prefix is a per-developer namespace; any prefix works when the trailing `NN_<name>` segment is retained and the answer is named explicitly with `--answer`.
 3. Run `pytest tests/test_problem_XX_<name>.py -v` from the `python/` directory.
 
 Test files **always** import from `practice_problems.problem_NN_<name>` (the stub).

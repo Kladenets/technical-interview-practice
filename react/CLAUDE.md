@@ -12,7 +12,7 @@ npx playwright install chromium
 
 ### Working on a problem
 
-All answer files live in `react/practice_problem_answers/` and are never shared.
+All answer files live in `react/practice_problem_answers/`; their prefixes are per-developer namespaces and answers are selected explicitly, never auto-discovered.
 `src/App.jsx` is a permanent placeholder — never edit it during practice.
 
 The `PRACTICE_ANSWER` environment variable points Vite (and Playwright) at your
@@ -23,23 +23,23 @@ answer directory. The Vite plugin in `vite.config.js` intercepts `main.jsx`'s
 
    ```bash
    cd react
-   mkdir -p practice_problem_answers/cw_answer_02_incident_dashboard
+   mkdir -p practice_problem_answers/kk_answer_02_incident_dashboard
    cp practice_problems/problem_02_incident_dashboard.jsx \
-      practice_problem_answers/cw_answer_02_incident_dashboard/App.jsx
+      practice_problem_answers/kk_answer_02_incident_dashboard/App.jsx
    ```
 
    For TypeScript problems, use `.tsx`:
 
    ```bash
-   mkdir -p practice_problem_answers/cw_answer_05_ts_example
+   mkdir -p practice_problem_answers/kk_answer_05_ts_example
    cp practice_problems/problem_05_ts_example.tsx \
-      practice_problem_answers/cw_answer_05_ts_example/App.tsx
+      practice_problem_answers/kk_answer_05_ts_example/App.tsx
    ```
 
 2. Start the Vite dev server pointing at your answer:
 
    ```bash
-   PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run dev
+   PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run dev
    ```
 
    This opens http://localhost:5173 and hot-reloads your answer file.
@@ -49,7 +49,7 @@ answer directory. The Vite plugin in `vite.config.js` intercepts `main.jsx`'s
 3. Run the Playwright tests against your answer:
 
    ```bash
-   PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run test:02
+   PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run test:02
    ```
 
    When `PRACTICE_ANSWER` is set, Playwright always spawns a fresh dev server
@@ -59,7 +59,7 @@ answer directory. The Vite plugin in `vite.config.js` intercepts `main.jsx`'s
    Or open interactive Playwright UI mode:
 
    ```bash
-   PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run test:ui
+   PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run test:ui
    ```
 
 No `git restore` needed — `src/App.jsx` is never touched.
@@ -77,7 +77,7 @@ No `git restore` needed — `src/App.jsx` is never touched.
 | `npm test` | All spec files |
 | `npm run test:ui` | Playwright interactive UI |
 
-Prefix any test command with `PRACTICE_ANSWER=practice_problem_answers/cw_answer_NN_<name>`.
+Prefix any test command with `PRACTICE_ANSWER=practice_problem_answers/kk_answer_NN_<name>`. Vite resolves the explicitly named directory; its prefix is not load-bearing.
 
 ---
 

@@ -49,11 +49,18 @@ typescript/
   jest.config.js              # Answer-redirect plugin
 golang/
   practice_problems/          # problem_NN_<name>/ dirs, each with problem.go + problem_test.go
-  practice_problem_answers/   # cw_answer_NN_<name>.go files
+  practice_problem_answers/   # <prefix>_answer_NN_<name>.go files
   go.mod
 run_tests.sh                  # Unified test runner for all languages (see below)
 CLAUDE.md                     # Guidelines for the AI agent
 ```
+
+## Answer namespaces
+
+Answer files follow `<prefix>_answer_NN_<name>`. The prefix identifies the developer:
+`cw_` is the upstream author, `en_` is a contributor, and `kk_` is this fork. The
+harness reads only the trailing `NN_<name>` segment. Answers are never auto-discovered,
+so name one explicitly or tests run against the stub.
 
 ---
 
@@ -118,10 +125,10 @@ Browse `index.html` to pick something, then click **Open in VS Code** to open th
 
 ```bash
 cp python/practice_problems/problem_03_permission_manager.py \
-   python/practice_problem_answers/my_answer_03_permission_manager.py
+   python/practice_problem_answers/kk_answer_03_permission_manager.py
 ```
 
-The prefix (`my_answer_`, `cw_answer_`, etc.) can be anything — the filename **must** keep the `NN_<name>` segment (e.g. `03_permission_manager`) so the runner can map it to the right test suite.
+The prefix is a per-developer namespace and is not load-bearing; the filename **must** keep the trailing `NN_<name>` segment (e.g. `03_permission_manager`) so the runner can map it to the right test suite. Answers are selected explicitly, so multiple prefixes coexist safely.
 
 #### 3. Implement it
 
@@ -132,22 +139,22 @@ Fill in the `raise NotImplementedError` stubs. Keep the function/class signature
 ```bash
 # Full test suite
 ./run_tests.sh \
-  -f python/practice_problem_answers/my_answer_03_permission_manager.py \
+  -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
   -c pytest python/tests/test_problem_03_permission_manager.py -v
 
 # Single test class
 ./run_tests.sh \
-  -f python/practice_problem_answers/my_answer_03_permission_manager.py \
+  -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
   -c pytest python/tests/test_problem_03_permission_manager.py::TestCreateRole
 
 # Single test method
 ./run_tests.sh \
-  -f python/practice_problem_answers/my_answer_03_permission_manager.py \
+  -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
   -c pytest python/tests/test_problem_03_permission_manager.py::TestCreateRole::test_empty_permissions_by_default
 
 # Stop on first failure
 ./run_tests.sh \
-  -f python/practice_problem_answers/my_answer_03_permission_manager.py \
+  -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
   -c pytest python/tests/test_problem_03_permission_manager.py -x
 ```
 
@@ -160,9 +167,9 @@ Fill in the `raise NotImplementedError` stubs. Keep the function/class signature
 #### 2. Create your answer directory and copy the stub into it
 
 ```bash
-mkdir -p react/practice_problem_answers/cw_answer_02_incident_dashboard
+mkdir -p react/practice_problem_answers/kk_answer_02_incident_dashboard
 cp react/practice_problems/problem_02_incident_dashboard.jsx \
-   react/practice_problem_answers/cw_answer_02_incident_dashboard/App.jsx
+   react/practice_problem_answers/kk_answer_02_incident_dashboard/App.jsx
 ```
 
 `react/src/App.jsx` is a permanent placeholder — never edit it.
@@ -172,7 +179,7 @@ Your answer lives in its own isolated directory.
 
 ```bash
 cd react
-PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run dev
+PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run dev
 ```
 
 Opens http://localhost:5173 and hot-reloads your `App.jsx` on every save.
@@ -186,12 +193,12 @@ Use `run_tests.sh` the same way as Python — pass the answer directory (or `App
 ```bash
 # Run the Playwright suite for problem 02
 ./run_tests.sh \
-  -f react/practice_problem_answers/cw_answer_02_incident_dashboard \
+  -f react/practice_problem_answers/kk_answer_02_incident_dashboard \
   -c npm run test:02
 
 # Open Playwright's interactive UI (step through each test visually)
 ./run_tests.sh \
-  -f react/practice_problem_answers/cw_answer_02_incident_dashboard \
+  -f react/practice_problem_answers/kk_answer_02_incident_dashboard \
   -c npm run test:ui
 ```
 
@@ -199,8 +206,8 @@ Or run directly from the `react/` directory:
 
 ```bash
 cd react
-PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run test:02
-PRACTICE_ANSWER=practice_problem_answers/cw_answer_02_incident_dashboard npm run test:ui
+PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run test:02
+PRACTICE_ANSWER=practice_problem_answers/kk_answer_02_incident_dashboard npm run test:ui
 ```
 
 Stop any running `npm run dev` session before running tests — when `PRACTICE_ANSWER`
@@ -218,10 +225,10 @@ is set, Playwright always spawns a fresh dev server to ensure it uses the right 
 
 ```bash
 cp typescript/practice_problems/problem_01_donation_processor.ts \
-   typescript/practice_problem_answers/my_answer_01_donation_processor.ts
+   typescript/practice_problem_answers/kk_answer_01_donation_processor.ts
 ```
 
-The prefix (`my_answer_`, `cw_answer_`, etc.) can be anything — the filename **must** keep the `NN_<name>` segment.
+The prefix is a per-developer namespace and is not load-bearing; retain the trailing `NN_<name>` segment and name the answer explicitly. Nothing is auto-run.
 
 #### 3. Implement it
 
@@ -232,15 +239,15 @@ Fill in the `throw new Error('Not implemented')` stubs. Keep the class and metho
 ```bash
 # Via run_tests.sh (from repo root)
 ./run_tests.sh \
-  -f typescript/practice_problem_answers/my_answer_01_donation_processor.ts \
+  -f typescript/practice_problem_answers/kk_answer_01_donation_processor.ts \
   -c npm run test:01
 
 # Or directly from typescript/ with the env var
 cd typescript
-PRACTICE_ANSWER=my_answer_01_donation_processor npm run test:01
+PRACTICE_ANSWER=kk_answer_01_donation_processor npm run test:01
 
 # Watch mode (re-runs on every save)
-PRACTICE_ANSWER=my_answer_01_donation_processor npm run test:watch
+PRACTICE_ANSWER=kk_answer_01_donation_processor npm run test:watch
 ```
 
 The `PRACTICE_ANSWER` env var tells Jest to redirect imports of the stub to your answer file — you never need to edit the test files.
@@ -253,10 +260,10 @@ The `PRACTICE_ANSWER` env var tells Jest to redirect imports of the stub to your
 
 ```bash
 cp golang/practice_problems/problem_01_geofence_alert_engine/problem.go \
-   golang/practice_problem_answers/my_answer_01_geofence_alert_engine.go
+   golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go
 ```
 
-The prefix can be anything; the `NN_<name>` segment must match the problem directory name.
+The prefix is a per-developer namespace and can be anything; the trailing `NN_<name>` segment must match the problem directory name. Answers are selected explicitly, not auto-discovered.
 
 #### 3. Implement it
 
@@ -270,12 +277,12 @@ Replace every `panic("not implemented")` with a real implementation. Your answer
 ```bash
 # Full test suite
 ./run_tests.sh \
-  -f golang/practice_problem_answers/my_answer_01_geofence_alert_engine.go \
+  -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
   -c go test -v .
 
 # Single test group
 ./run_tests.sh \
-  -f golang/practice_problem_answers/my_answer_01_geofence_alert_engine.go \
+  -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
   -c go test -v -run TestIsInZone .
 ```
 
@@ -319,5 +326,3 @@ DO NOT ask it to improve existing problems or test suites, unless you don't plan
 as that will likely break other peoples' answers. Instead, if you would like to improve upon an existing problem/test
 just copy and paste it into a new problem/test file with something like `v.x` appended to the file name, and then try
 to improve the problem and/or test suite.
-
-

@@ -14,14 +14,14 @@ npm install
 
    ```bash
    cp practice_problems/problem_01_donation_processor.ts \
-      practice_problem_answers/cw_answer_01_donation_processor.ts
+      practice_problem_answers/kk_answer_01_donation_processor.ts
    ```
 
 3. Run tests against your answer via `run_tests.sh` from the repo root:
 
    ```bash
    ./run_tests.sh \
-     -f typescript/practice_problem_answers/cw_answer_01_donation_processor.ts \
+     -f typescript/practice_problem_answers/kk_answer_01_donation_processor.ts \
      -c npm run test:01
    ```
 
@@ -29,13 +29,13 @@ npm install
 
    ```bash
    cd typescript
-   PRACTICE_ANSWER=cw_answer_01_donation_processor npm run test:01
+   PRACTICE_ANSWER=kk_answer_01_donation_processor npm run test:01
    ```
 
    Watch mode:
 
    ```bash
-   PRACTICE_ANSWER=cw_answer_01_donation_processor npm run test:watch
+   PRACTICE_ANSWER=kk_answer_01_donation_processor npm run test:watch
    ```
 
 When `PRACTICE_ANSWER` is set, `jest.config.js` uses `moduleNameMapper` to intercept
@@ -55,7 +55,7 @@ which should all fail with "Not implemented". This is the expected baseline.
 | `npm run test:04` | Problem 04 — Platform Fee Calculator |
 | `npm run test:05` | Problem 05 — Giving Day Challenge Engine |
 
-Prefix with `PRACTICE_ANSWER=cw_answer_NN_<name>` to test your implementation.
+Prefix with `PRACTICE_ANSWER=kk_answer_NN_<name>` to test your implementation. The prefix is a per-developer namespace and is not load-bearing: Jest uses only the trailing `NN_<name>` segment, and only the answer named in `PRACTICE_ANSWER` is loaded.
 
 ---
 
