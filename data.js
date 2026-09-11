@@ -378,10 +378,10 @@ const PROBLEMS = [
     path: "react/practice_problems/problem_09_work_order_queue.jsx",
     test: "react/tests/test_problem_09_work_order_queue.spec.js",
     title: "Role-Scoped Work-Order Queue",
-    description: "Build a multi-tenant work-order queue with role-scoped visibility, search and status filtering, and optimistic status updates with in-flight feedback.",
+    description: "Build a multi-tenant work-order queue with role-scoped visibility, search and status filtering, and optimistic status updates with rollback on server rejection.",
     language: "react",
     industry: "general",
-    tags: ["filtering", "controlled-inputs", "optimistic-updates", "conditional-rendering", "useMemo"],
+    tags: ["filtering", "controlled-inputs", "optimistic-updates", "conditional-rendering", "useMemo", "async-await"],
     companies: ["onsemble"],
     parts: 3,
     level: "senior"
@@ -460,7 +460,7 @@ const PROBLEMS = [
     description: "Build an integration boundary that deduplicates webhook retries, tracks processing attempts, schedules retries, and supports dead-letter replay.",
     language: "python",
     industry: "general",
-    tags: ["idempotency", "event-driven", "retries", "dead-letter", "webhooks"],
+    tags: ["idempotency", "event-driven", "retries", "dead-letter", "webhooks", "state-machine"],
     companies: ["onsemble"],
     parts: 3,
     level: "senior"
