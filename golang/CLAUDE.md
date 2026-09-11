@@ -22,7 +22,7 @@ Copy `problem.go` to `practice_problem_answers/` and rename it:
 
 ```bash
 cp golang/practice_problems/problem_01_geofence_alert_engine/problem.go \
-   golang/practice_problem_answers/cw_answer_01_geofence_alert_engine.go
+   golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go
 ```
 
 Open the answer file and implement every function (replace each `panic("not implemented")`).
@@ -41,7 +41,7 @@ Use `run_tests.sh` from the repo root:
 
 ```bash
 ./run_tests.sh \
-  -f golang/practice_problem_answers/cw_answer_01_geofence_alert_engine.go \
+  -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
   -c go test -v .
 ```
 
@@ -49,7 +49,7 @@ Run a specific test group:
 
 ```bash
 ./run_tests.sh \
-  -f golang/practice_problem_answers/cw_answer_01_geofence_alert_engine.go \
+  -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
   -c go test -v -run TestIsInZone .
 ```
 
@@ -169,7 +169,7 @@ Problems and their answers must only import standard-library packages. The temp-
 ```
 
 Examples:
-- `cw_answer_01_geofence_alert_engine.go` — Charlie's answer
+- `kk_answer_01_geofence_alert_engine.go` — Kyle's answer
 - `en_answer_02_api_rate_limiter.go` — another developer's answer
 
-The `run_tests.sh` script extracts the problem ID via the regex `[0-9]{2}_[a-z_]+`, so any prefix works as long as the `NN_name` segment is present.
+The prefix is a per-developer namespace and is not load-bearing. `run_tests.sh` extracts the problem ID via `[0-9]{2}_[a-z_]+`; answers are selected explicitly, so multiple prefixes can coexist and none run automatically.

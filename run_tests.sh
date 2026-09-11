@@ -7,11 +7,11 @@
 #
 # Examples:
 #   ./run_tests.sh \
-#     -f python/practice_problem_answers/cw_answer_03_permission_manager.py \
+#     -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
 #     -c pytest python/tests/test_problem_03_permission_manager.py -v
 #
 #   ./run_tests.sh \
-#     -f python/practice_problem_answers/cw_answer_03_permission_manager.py \
+#     -f python/practice_problem_answers/kk_answer_03_permission_manager.py \
 #     -c pytest python/tests/test_problem_03_permission_manager.py::TestCreateRole
 #
 # How it works (Python):
@@ -24,11 +24,11 @@
 #
 # Examples:
 #   ./run_tests.sh \
-#     -f typescript/practice_problem_answers/cw_answer_01_donation_processor.ts \
+#     -f typescript/practice_problem_answers/kk_answer_01_donation_processor.ts \
 #     -c npm run test:01
 #
 # How it works (TypeScript):
-#   Extracts the stem from the answer filename (e.g. cw_answer_01_donation_processor),
+#   Extracts the stem from the answer filename (e.g. kk_answer_01_donation_processor),
 #   sets PRACTICE_ANSWER to that stem, then runs the Jest command from typescript/.
 #   jest.config.js uses moduleNameMapper to redirect the stub import to the answer file.
 #
@@ -38,11 +38,11 @@
 #
 # Examples:
 #   ./run_tests.sh \
-#     -f golang/practice_problem_answers/cw_answer_01_geofence_alert_engine.go \
+#     -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
 #     -c go test -v .
 #
 #   ./run_tests.sh \
-#     -f golang/practice_problem_answers/cw_answer_01_geofence_alert_engine.go \
+#     -f golang/practice_problem_answers/kk_answer_01_geofence_alert_engine.go \
 #     -c go test -v -run TestIsInZone .
 #
 # How it works (Go):
@@ -58,15 +58,15 @@
 #
 # Examples:
 #   ./run_tests.sh \
-#     -f react/practice_problem_answers/cw_answer_02_incident_dashboard \
+#     -f react/practice_problem_answers/kk_answer_02_incident_dashboard \
 #     -c npm run test:02
 #
 #   ./run_tests.sh \
-#     -f react/practice_problem_answers/cw_answer_02_incident_dashboard/App.jsx \
+#     -f react/practice_problem_answers/kk_answer_02_incident_dashboard/App.jsx \
 #     -c npm run test:02
 #
 #   ./run_tests.sh \
-#     -f react/practice_problem_answers/cw_answer_02_incident_dashboard \
+#     -f react/practice_problem_answers/kk_answer_02_incident_dashboard \
 #     -c npm run test:ui
 #
 # How it works (React):
@@ -156,12 +156,12 @@ fi
 # ── Go mode: .go answer files ────────────────────────────────────────────────
 if [[ "$IS_DIR" == false && "$ANSWER_ABS" == *.go ]]; then
     FILENAME=$(basename "$ANSWER_ABS" .go)
-    # Extract NN_name from filename (e.g. cw_answer_01_geofence_alert_engine → 01_geofence_alert_engine)
+    # Extract NN_name from filename (e.g. kk_answer_01_geofence_alert_engine → 01_geofence_alert_engine)
     PROBLEM_ID=$(echo "$FILENAME" | grep -oE '[0-9]{2}_[a-z_]+')
 
     if [[ -z "$PROBLEM_ID" ]]; then
         echo "Error: could not extract problem ID from filename: $FILENAME"
-        echo "Expected format: *_NN_<name>.go (e.g. cw_answer_01_geofence_alert_engine.go)"
+        echo "Expected format: *_NN_<name>.go (e.g. kk_answer_01_geofence_alert_engine.go)"
         exit 1
     fi
 

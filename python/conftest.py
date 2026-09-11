@@ -16,7 +16,7 @@ def pytest_addoption(parser):
         help=(
             "Path to an answer file to test against instead of the problem stub. "
             "The filename must contain a segment matching NN_<name> "
-            "(e.g. cw_answer_03_permission_manager.py). "
+            "(e.g. kk_answer_03_permission_manager.py; any prefix works). "
             "The corresponding stub module is replaced in sys.modules before "
             "test collection so all imports resolve to your implementation."
         ),
@@ -37,7 +37,7 @@ def pytest_configure(config):
 
     # Derive the stub module name from the answer filename.
     # Convention: filename contains a segment "NN_<name>"
-    # e.g. cw_answer_03_permission_manager.py → problem_03_permission_manager
+    # e.g. kk_answer_03_permission_manager.py → problem_03_permission_manager
     #      → injected under practice_problems.problem_03_permission_manager
     filename = os.path.basename(answer_path)
     match = re.search(r'(\d{2}_[a-z_]+)\.py$', filename)
@@ -45,7 +45,7 @@ def pytest_configure(config):
         raise ValueError(
             f"--answer: '{filename}' does not match the expected naming pattern.\n"
             f"Filename must contain a segment like '03_permission_manager'.\n"
-            f"Example: cw_answer_03_permission_manager.py"
+            f"Example: kk_answer_03_permission_manager.py (any prefix works)"
         )
 
     stub_module = f"practice_problems.problem_{match.group(1)}"

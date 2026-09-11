@@ -3,15 +3,16 @@
 //
 // Create your answer directory and copy a stub into it:
 //
-//   mkdir -p practice_problem_answers/cw_answer_01_activity_feed
+//   mkdir -p practice_problem_answers/kk_answer_01_activity_feed
 //   cp practice_problems/problem_01_activity_feed.jsx \
-//      practice_problem_answers/cw_answer_01_activity_feed/App.jsx
+//      practice_problem_answers/kk_answer_01_activity_feed/App.jsx
 //
 // Then run dev or tests pointing at your answer directory:
 //
-//   PRACTICE_ANSWER=practice_problem_answers/cw_answer_01_activity_feed npm run dev
-//   PRACTICE_ANSWER=practice_problem_answers/cw_answer_01_activity_feed npm run test:01
+//   PRACTICE_ANSWER=practice_problem_answers/kk_answer_01_activity_feed npm run dev
+//   PRACTICE_ANSWER=practice_problem_answers/kk_answer_01_activity_feed npm run test:01
 //
+// The prefix is your namespace and is not load-bearing; the explicitly named answer is used.
 // See CLAUDE.md for the full workflow.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -30,11 +31,11 @@ export default function App() {
           fontSize: 13,
         }}
       >
-        {`mkdir -p practice_problem_answers/cw_answer_01_activity_feed
+        {`mkdir -p practice_problem_answers/kk_answer_01_activity_feed
 cp practice_problems/problem_01_activity_feed.jsx \\
-   practice_problem_answers/cw_answer_01_activity_feed/App.jsx
+   practice_problem_answers/kk_answer_01_activity_feed/App.jsx
 
-PRACTICE_ANSWER=practice_problem_answers/cw_answer_01_activity_feed npm run dev`}
+PRACTICE_ANSWER=practice_problem_answers/kk_answer_01_activity_feed npm run dev`}
       </pre>
     </div>
   )

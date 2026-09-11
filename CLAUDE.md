@@ -25,11 +25,11 @@ another target role.
 ```
 python/
   practice_problems/          # problem stubs (read-only during practice)
-  practice_problem_answers/   # cw_answer_XX_... files (filled in by Charlie)
+  practice_problem_answers/   # <prefix>_answer_NN_<name>.py implementations
   tests/                      # pytest suites
 react/
   practice_problems/          # JSX/TSX starter files (read-only during practice)
-  practice_problem_answers/   # cw_answer_NN_<name>/App.jsx files (filled in by Charlie)
+  practice_problem_answers/   # <prefix>_answer_NN_<name>/App.jsx implementations
   src/App.jsx                 # placeholder — never edit during practice
   src/main.jsx                # Vite entry point (do not modify)
   tests/                      # Playwright e2e specs
@@ -38,16 +38,24 @@ react/
   vite.config.js
 typescript/
   practice_problems/          # .ts class stubs (read-only during practice)
-  practice_problem_answers/   # cw_answer_NN_<name>.ts files (filled in by Charlie)
-  tests/                      # Vitest suites
-  package.json                # Vitest deps
-  vitest.config.ts            # answer-redirect plugin
+  practice_problem_answers/   # <prefix>_answer_NN_<name>.ts implementations
+  tests/                      # Jest suites
+  package.json                # Jest + ts-jest deps
+  jest.config.js              # answer-redirect moduleNameMapper
   tsconfig.json
 golang/
   practice_problems/          # problem_NN_<name>/ dirs, each with stub.go + types.go + *_test.go
-  practice_problem_answers/   # cw_answer_NN_<name>.go files (filled in by Charlie)
+  practice_problem_answers/   # <prefix>_answer_NN_<name>.go implementations
   go.mod
 ```
+
+## Answer namespaces
+
+Answer files follow `<prefix>_answer_NN_<name>`. The prefix is a per-developer
+namespace: `cw_` is the upstream author, `en_` is another contributor, and `kk_`
+is this fork. The harness reads only the trailing `NN_<name>` segment. Answers are
+never auto-discovered: name one explicitly when running tests, or tests run against
+the stub.
 
 ## Problem design rules (all languages)
 
