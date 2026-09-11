@@ -83,6 +83,7 @@ problems. It references a `PROBLEMS` array in `data.js` at the repo root.
   language: "python",           // "python" | "react" | "typescript" | "golan"
   industry: "health-tech",      // see valid values below
   tags: ["tag-one", "tag-two"], // max 10 kebab-case strings (try to add all relevant tags)
+  companies: ["onsemble"],       // optional interview-target slugs
   parts: 3,                     // number of implementation parts
   level: "senior"               // "junior" | "mid-level" | "senior" | "staff"
 }
@@ -96,6 +97,11 @@ problems. It references a `PROBLEMS` array in `data.js` at the repo root.
 
 ### Suggested `industry` values (add new ones as needed, always kebab-case)
 `general` | `health-tech` | `iot` | `dev-tools` | `fintech`
+
+Use `companies` for role-specific preparation targets, not for the industry or
+the company named in the fictional problem. Keep values lowercase and
+kebab-case (for example, `"onsemble"`). Omit the field when a problem is not
+intentionally mapped to a company.
 
 Use `"general"` when a problem has no clear real-world industry vertical — e.g. a
 rate limiter, a permissions system, or an activity feed. These are generic software

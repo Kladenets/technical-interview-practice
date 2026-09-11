@@ -100,7 +100,7 @@ No additional dependencies — all Go problems use only the standard library.
 
 Open `index.html` in any browser (double-click it in Finder, or run `open index.html`).
 
-The index lets you filter by language and industry, search by keyword, and click tags to narrow results. Each card has an **Open in VS Code** link that deep-links directly into your local clone — no path configuration needed.
+The index lets you filter by language, industry, level, and target company, search by keyword, and click tags to narrow results. Each card has an **Open in VS Code** link that deep-links directly into your local clone — no path configuration needed.
 
 ---
 
