@@ -9,7 +9,8 @@
     "test:02": "jest tests/test_problem_02_pledge_tracker.test.ts",
     "test:03": "jest tests/test_problem_03_donor_suppressor.test.ts",
     "test:04": "jest tests/test_problem_04_fee_calculator.test.ts",
-    "test:05": "jest tests/test_problem_05_giving_day_challenges.test.ts"
+    "test:05": "jest tests/test_problem_05_giving_day_challenges.test.ts",
+    "test:06": "jest tests/test_problem_06_tenant_authorization.test.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
