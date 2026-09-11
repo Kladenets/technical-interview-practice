@@ -229,6 +229,7 @@
     .badge-level-mid-level { background: #e0f2fe; color: #0369a1; }
     .badge-level-senior    { background: #fff7ed; color: #c2410c; }
     .badge-level-staff     { background: #f5f3ff; color: #7c3aed; }
+    .badge-company         { background: #ecfeff; color: #155e75; }
 
     .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .tag {
@@ -311,7 +312,7 @@
 
 <header>
   <h1>Interview Practice Problems</h1>
-  <p>Filter by language, industry, or level, search by topic, or click a tag to narrow results.</p>
+  <p>Filter by language, industry, level, or target company, search by topic, or click a tag to narrow results.</p>
 </header>
 
 <div class="filters">
@@ -324,6 +325,7 @@
   <div class="filter-group" id="language-filters"></div>
   <div class="filter-group" id="industry-filters"></div>
   <div class="filter-group" id="level-filters"></div>
+  <div class="filter-group" id="company-filters"></div>
   <div id="tag-chip"></div>
 </div>
 
@@ -342,7 +344,7 @@ const repoRoot = window.location.pathname.replace(/\/index\.html$/, "");
 
 // ── Filter state ─────────────────────────────────────────────────────────────
 const LEVELS = ["junior", "mid-level", "senior", "staff"]; // canonical order
-const state = { search: "", language: "python", industry: null, level: null, tag: null };
+const state = { search: "", language: "python", industry: null, level: null, company: null, tag: null };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const unique = arr => [...new Set(arr)];
@@ -357,6 +359,7 @@ function matchesFilters(p) {
   if (state.language && p.language !== state.language) return false;
   if (state.industry && p.industry !== state.industry) return false;
   if (state.level    && p.level    !== state.level)    return false;
+  if (state.company  && !(p.companies || []).includes(state.company)) return false;
   if (state.tag     && !p.tags.includes(state.tag))    return false;
   if (state.search) {
     const q = state.search.toLowerCase();
@@ -378,6 +381,7 @@ function copyPath(path) {
 function renderFilters() {
   const langs = unique(PROBLEMS.map(p => p.language));
   const inds   = unique(PROBLEMS.map(p => p.industry));
+  const companies = unique(PROBLEMS.flatMap(p => p.companies || []));
 
   document.getElementById("language-filters").innerHTML =
     `<span class="filter-label">Language</span>` +
@@ -399,6 +403,14 @@ function renderFilters() {
       const active = lv === "all" ? !state.level : state.level === lv;
       return `<button class="filter-btn${active ? " active" : ""}" data-level="${lv}">${lv === "all" ? "All" : label(lv)}</button>`;
     }).join("");
+
+  document.getElementById("company-filters").innerHTML = companies.length
+    ? `<span class="filter-label">Company</span>` +
+      ["all", ...companies].map(company => {
+        const active = company === "all" ? !state.company : state.company === company;
+        return `<button class="filter-btn${active ? " active" : ""}" data-company="${company}">${company === "all" ? "All" : label(company)}</button>`;
+      }).join("")
+    : "";
 
   document.getElementById("tag-chip").innerHTML = state.tag
     ? `<span class="active-tag-chip">#${state.tag}<button onclick="setTag(null)" title="Clear tag filter">×</button></span>`
@@ -427,6 +439,10 @@ function renderCards() {
       `<span class="tag${state.tag === t ? " active" : ""}" onclick="setTag('${t}')">#${t}</span>`
     ).join("");
 
+    const companyHtml = (p.companies || []).map(company =>
+      `<span class="badge badge-company">${label(company)} prep</span>`
+    ).join("");
+
     const testBtn = vscodeTest
       ? `<a href="${vscodeTest}" class="action-btn action-secondary">Test file ↗</a>`
       : "";
@@ -443,6 +459,7 @@ function renderCards() {
     <span class="badge badge-${p.language}">${label(p.language)}</span>
     <span class="badge badge-${p.industry}">${label(p.industry)}</span>
     <span class="badge badge-level-${p.level}">${label(p.level)}</span>
+    ${companyHtml}
   </div>
   <div class="tags">${tagHtml}</div>
   <p class="file-path">${p.path}</p>
@@ -487,6 +504,14 @@ document.getElementById("level-filters").addEventListener("click", e => {
   const btn = e.target.closest("[data-level]");
   if (!btn) return;
   state.level = btn.dataset.level === "all" ? null : btn.dataset.level;
+  render();
+});
+
+document.getElementById("company-filters").addEventListener("click", e => {
+  const btn = e.target.closest("[data-company]");
+  if (!btn) return;
+  state.company = btn.dataset.company === "all" ? null : btn.dataset.company;
+  if (state.company) state.language = null;
   render();
 });
 

@@ -57,6 +57,7 @@ const PROBLEMS = [
     language: "python",
     industry: "general",
     tags: ["rbac", "permissions", "role-hierarchy", "wildcard-matching", "saas"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -156,6 +157,7 @@ const PROBLEMS = [
     language: "python",
     industry: "health-tech",
     tags: ["state-machine", "metrics", "conversion-rate", "sla-monitoring", "clinical"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -167,6 +169,7 @@ const PROBLEMS = [
     language: "react",
     industry: "general",
     tags: ["useEffect", "useMemo", "event-streams", "optimistic-updates"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -178,6 +181,7 @@ const PROBLEMS = [
     language: "python",
     industry: "public-safety",
     tags: ["event-deduplication", "time-window", "alert-system", "event-driven"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -277,6 +281,7 @@ const PROBLEMS = [
     language: "react",
     industry: "legal-tech",
     tags: ["useMemo", "sorting", "filtering", "inline-editing", "controlled-inputs"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -365,6 +370,7 @@ const PROBLEMS = [
     language: "react",
     industry: "insurance-tech",
     tags: ["typescript", "useEffect", "useRef", "useMemo", "polling", "abort-controller", "compound-components"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -376,6 +382,7 @@ const PROBLEMS = [
     language: "react",
     industry: "general",
     tags: ["filtering", "controlled-inputs", "optimistic-updates", "conditional-rendering", "useMemo"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -442,6 +449,7 @@ const PROBLEMS = [
     language: "typescript",
     industry: "general",
     tags: ["rbac", "multi-tenancy", "audit-trail", "custom-types", "permissions"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
@@ -453,6 +461,7 @@ const PROBLEMS = [
     language: "python",
     industry: "general",
     tags: ["idempotency", "event-driven", "retries", "dead-letter", "webhooks"],
+    companies: ["onsemble"],
     parts: 3,
     level: "senior"
   },
