@@ -245,41 +245,41 @@ export function ActivityFeed() {
     <div style={{ fontFamily: "monospace", maxWidth: 700, margin: "0 auto", padding: 24 }}>
       <h2 style={{ marginBottom: 16 }}>Activity Feed</h2>
 
-      <div styles={{display: "flex", justifyContent: "between", gap: "6px"}}>
+      <div style={{ display: "flex", justifyContent: "space-between", gap: "6px" }}>
         <label>Event Type Filters:</label>
         <button 
           onClick={handleSelectAllEventTypeFilters}
-          styles={{border: "1px solid black", backgroundColor: areAllEventTypeFiltersSelected ? "green" : "yellow"}}
+          style={{border: "1px solid black", backgroundColor: areAllEventTypeFiltersSelected ? "green" : "yellow"}}
         >
             all
         </button>
         <button 
           onClick={() => handleSelectEventTypeFilter("deploy")}
-          styles={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("deploy") ? "green" : "yellow"}}
+          style={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("deploy") ? "green" : "yellow"}}
         >
             deploy
         </button>
         <button 
           onClick={() => handleSelectEventTypeFilter("alert")}
-          styles={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("alert") ? "green" : "yellow"}}
+          style={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("alert") ? "green" : "yellow"}}
         >
           alert
         </button>
         <button 
           onClick={() => handleSelectEventTypeFilter("payment")}
-          styles={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("payment") ? "green" : "yellow"}}
+          style={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("payment") ? "green" : "yellow"}}
         >
           payment
         </button>
         <button 
           onClick={() => handleSelectEventTypeFilter("auth")}
-          styles={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("auth") ? "green" : "yellow"}}
+          style={{border: "1px solid black", backgroundColor: selectedEventTypeFilters.includes("auth") ? "green" : "yellow"}}
         >
           auth</button>
       </div>
 
       {filteredEvents.length > 0 ? filteredEvents.map(event => (
-        <div styles={{display: "flex", justifyContent: "between", gap: "6px"}} data-testid="event-row">
+        <div key={event.id} style={{ display: "flex", justifyContent: "space-between", gap: "6px" }} data-testid="event-row">
           <span>{event.timestamp}</span>
           <span>{event.type}</span>
           <span>{event.actor}</span>
