@@ -24,8 +24,8 @@ another target role.
 
 [`interview_prep/`](interview_prep/) covers the half of an interview that has no
 test suite: system design, experience stories, engineering philosophy, agentic
-development, leadership and influence, self-assessment. Answers are markdown and
-are graded by an AI against a rubric.
+development, leadership and influence, self-assessment, and product
+collaboration. Answers are markdown and are graded by an AI against a rubric.
 
 [`interview_prep/AGENTS.md`](interview_prep/AGENTS.md) is the shared judging
 contract — scoring scale, judgement file format, anti-inflation rules, and the
@@ -34,14 +34,6 @@ rubric dimensions and failure modes. Read both before grading, tutoring, or
 writing prompts. These problems are not listed in `data.js`.
 
 The default target level across `interview_prep/` is **senior**.
-
-## Agent lab
-
-[`agent_lab/`](agent_lab/) is a hands-on TypeScript lab for building a governed,
-approval-gated, tool-calling LLM agent — six stages from a first tool call to
-approval gating, receipts, a data boundary and evals. Stage tests fail until
-implemented, by design; they are exercises, not a broken build. Tests run with
-no API key via a mock model, with optional live mode behind `ANTHROPIC_API_KEY`.
 
 ## Repo structure
 
