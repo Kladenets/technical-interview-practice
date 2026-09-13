@@ -9,9 +9,6 @@ venv/
 node_modules/
 .env
 
-# Next.js
-.next/
-
 # Build and test output
 dist/
 playwright-report/
