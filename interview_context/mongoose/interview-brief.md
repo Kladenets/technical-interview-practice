@@ -66,7 +66,7 @@ Roughly two weeks end to end.
 | Drives ambiguous work after PM handoff | Stated in the call; two stages with CEO/CPO | Highest-value gap — new `product-collaboration` category |
 | Ships end to end, owns features | "everyone owns features end to end" | Narrating a full build; startup-fit framing |
 | Frontend architecture at platform scale | Atomic Features, white-label, one build → web + mobile | System-design prompts are backend-shaped; need frontend/config-driven ones |
-| Reasons about agents as a product surface | Governed Execution is the core product | No hands-on agent experience — see `agent_lab/` |
+| Reasons about agents as a product surface | Governed Execution is the core product | No hands-on agent experience — build something small yourself |
 | Compliance as a design constraint | PHI-Free Architecture | Practise designing *around* a data boundary |
 | Integration breadth | REST/GraphQL/FHIR/HL7 | Practise an adapter/normalisation layer design |
 | AI tooling fluency | Claude/Cursor; explicit topic | Already strong — `agentic-development` |
@@ -81,8 +81,9 @@ gap on the agent loop itself.
 
 ## Known gaps
 
-- No production experience building LLM agents or AI features. Closing this via
-  `agent_lab/`. Do not overclaim — "I built a governed tool-calling agent to
+- No production experience building LLM agents or AI features. Close this with
+  a small agent you build yourself. Do not overclaim — "I built a small
+  tool-calling agent with a human approval step to
   understand the problem shape" is credible and lands well; implying production
   experience does not.
 - Flutter/Dart, if unfamiliar. Likely acceptable given a frontend-heavy React
