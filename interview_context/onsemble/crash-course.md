@@ -41,6 +41,27 @@ Onsemble stack. The repository does not currently have a Node/Express,
 Postgres/Drizzle, Clerk, or TanStack Query problem, so those parts need focused
 design drills and new exercises.
 
+## Conversational prep (`interview_prep/`)
+
+The non-testable stages — system design, product collaboration, AI-native
+engineering, behavioral, and fit. Onsemble-specific prompts are tagged
+`Context: onsemble`; generic prompts serve every role and stay untagged. Drill
+the tagged ones first, then the generics.
+
+| Interview signal | Prompt | Status |
+|---|---|---|
+| Self-service workflow design end to end | `system-design/13_self_service_field_service_workflow` | onsemble |
+| Async/integration reliability (Lambda, webhooks) | `system-design/14_async_integration_reliability` | onsemble |
+| Product judgment across divergent user classes | `product-collaboration/07_conflicting_user_classes` | onsemble |
+| Fit: autonomous team inside a large company | `self-assessment/09_why_this_environment` | onsemble |
+| Driving after handoff, scope negotiation | `product-collaboration/04_driving_after_handoff`, `02_product_scope_pushback` | generic |
+| AI-native workflow, verification, when not to delegate | `agentic-development/01_end_to_end_workflow`, `02_confidently_wrong`, `03_not_to_delegate`, `04_reviewing_generated_code` | generic |
+| Ownership, failure, incident stories | `experience-stories/01_hardest_technical_problem`, `04_project_slipped_or_failed`, `06_incomplete_information_call` | generic |
+| Generic system-design range | `system-design/01_iot_telemetry_ingestion`, `06_multi_team_notification_platform` | generic |
+
+Answer the four tagged prompts, get them judged, and replay the lowest two
+before the loop. See `interview_prep/AGENTS.md` for the judging contract.
+
 ## Onsemble-specific problems to generate
 
 Generate these only after replaying the existing problems above. Keep them

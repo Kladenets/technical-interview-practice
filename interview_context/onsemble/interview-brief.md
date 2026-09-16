@@ -4,7 +4,7 @@
 
 Onsemble is a small, autonomous digital innovation team inside Hajoca. The role is likely to reward a product-minded full-stack engineer who can turn ambiguous customer and distribution-center feedback into dependable, self-service workflows, while using AI tools with strong engineering judgment.
 
-## Evidence
+## Role evidence
 
 ### Confirmed by Nancy
 
@@ -43,6 +43,18 @@ Onsemble is a small, autonomous digital innovation team inside Hajoca. The role 
 - https://kylekent.dev
 - https://kylekent.dev/resume
 
+## Interview process
+
+Stages, format, and tool policy are **not yet confirmed** — resolving them is the
+top priority of the next conversation with Nancy (see Unknowns). Update this
+table once known.
+
+| Stage | With | Focus | Prep category |
+|---|---|---|---|
+| Recruiter/hiring | Nancy | Fit, motivation, process framing | `self-assessment`, `product-collaboration` |
+| TBD technical | TBD | Likely coding and/or system design — format unconfirmed | `system-design`, role-shaped coding |
+| TBD product/behavioral | TBD | Ownership, ambiguity, customer judgment, AI-native practice | `product-collaboration`, `agentic-development` |
+
 ## Interview signal map
 
 | Likely signal | Your strongest evidence | Preparation gap to close |
@@ -55,6 +67,27 @@ Onsemble is a small, autonomous digital innovation team inside Hajoca. The role 
 | AI-native development | MCP servers, OpenCode/OpenChamber, multi-agent tooling on resume | Be concrete about verification, security, tests, and when not to delegate to AI |
 | Ownership in a small team | Led architecture, migrations, CI/CD, observability, cross-repo modernization | Frame end-to-end feature ownership, technical judgment, and outcomes without relying on team scale |
 | Motivation and fit | Real-user systems, full-stack breadth, remote autonomy, mentorship | Build a specific Onsemble/Hajoca narrative, not a generic startup answer |
+
+## Strengths to lean on
+
+- **React and TypeScript at platform scale** — IKEA microfrontends, SSR/CSR,
+  design systems, and TypeScript upgrades map directly onto the React/TanStack
+  Query/Vite frontend. Frame end-to-end feature ownership, not team scale.
+- **Production reliability ownership** — Tier 1 services, on-call, edge caching,
+  SSR state-leakage fixes, and MTTR improvements are concrete evidence for the
+  "correctness, reliability, maintainability" bar the posting repeats.
+- **AI-native development** — MCP servers and OpenCode/OpenChamber multi-agent
+  tooling are directly relevant to a team where agentic coding is embedded.
+  Lead with verification, tests, security, and when *not* to delegate.
+
+## Known gaps
+
+- **Node/Express + Postgres/Drizzle + Clerk + TanStack Query** are the stack
+  pieces the catalog does not yet exercise. Close with focused design drills and
+  the generation targets in the crash course; do not hand-wave the API/auth/data
+  layer.
+- **Interview format is unconfirmed.** Prepare for both a live coding round and a
+  system-design conversation until stages are known.
 
 ## Questions to ask Nancy
 
