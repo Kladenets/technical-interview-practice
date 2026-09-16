@@ -82,56 +82,56 @@
 
 export const SEED_CONTRACTS = [
   {
-    contract_id: 'con-001',
-    title: 'Vendor MSA',
-    owner_email: 'legal@acme.com',
-    status: 'active',
-    expires_on: '2025-09-30',
+    contract_id: "con-001",
+    title: "Vendor MSA",
+    owner_email: "legal@acme.com",
+    status: "active",
+    expires_on: "2025-09-30",
   },
   {
-    contract_id: 'con-002',
-    title: 'SaaS Subscription Agreement',
-    owner_email: 'ops@acme.com',
-    status: 'in_review',
-    expires_on: '2025-12-31',
+    contract_id: "con-002",
+    title: "SaaS Subscription Agreement",
+    owner_email: "ops@acme.com",
+    status: "in_review",
+    expires_on: "2025-12-31",
   },
   {
-    contract_id: 'con-003',
-    title: 'NDA — Design Partner',
-    owner_email: 'bizdev@acme.com',
-    status: 'approved',
-    expires_on: '2026-03-15',
+    contract_id: "con-003",
+    title: "NDA — Design Partner",
+    owner_email: "bizdev@acme.com",
+    status: "approved",
+    expires_on: "2026-03-15",
   },
   {
-    contract_id: 'con-004',
-    title: 'Office Lease',
-    owner_email: 'finance@acme.com',
-    status: 'active',
-    expires_on: '2027-06-01',
+    contract_id: "con-004",
+    title: "Office Lease",
+    owner_email: "finance@acme.com",
+    status: "active",
+    expires_on: "2027-06-01",
   },
   {
-    contract_id: 'con-005',
-    title: 'Legacy Reseller Agreement',
-    owner_email: 'sales@acme.com',
-    status: 'expired',
-    expires_on: '2024-01-01',
+    contract_id: "con-005",
+    title: "Legacy Reseller Agreement",
+    owner_email: "sales@acme.com",
+    status: "expired",
+    expires_on: "2024-01-01",
   },
   {
-    contract_id: 'con-006',
-    title: 'Marketing Agency SOW',
-    owner_email: 'marketing@acme.com',
-    status: 'draft',
-    expires_on: '2025-11-30',
+    contract_id: "con-006",
+    title: "Marketing Agency SOW",
+    owner_email: "marketing@acme.com",
+    status: "draft",
+    expires_on: "2025-11-30",
   },
-]
+];
 
 export const STATUS_COLORS = {
-  draft:     '#94a3b8',
-  in_review: '#f59e0b',
-  approved:  '#3b82f6',
-  active:    '#22c55e',
-  expired:   '#ef4444',
-}
+  draft: "#94a3b8",
+  in_review: "#f59e0b",
+  approved: "#3b82f6",
+  active: "#22c55e",
+  expired: "#ef4444",
+};
 
 /**
  * Mock API call. Resolves after ~300 ms; rejects ~15% of the time.
@@ -145,16 +145,63 @@ export function updateContractField(contractId, field, value) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.15) {
-        reject(new Error('Save failed — please try again.'))
+        reject(new Error("Save failed — please try again."));
       } else {
-        resolve({ contract_id: contractId, field, value })
+        resolve({ contract_id: contractId, field, value });
       }
-    }, 300)
-  })
+    }, 300);
+  });
 }
 
 // ── Your implementation goes below ───────────────────────────────────────────
 
+const Contracts = ({ contracts }) => {
+  return (
+    <>
+      <h2>Contracts List</h2>
+      <table style={{ borderCollapse: "collapse", width: "100%" }}>
+        <thead>
+          <tr style={{ backgroundColor: "lightgray" }}>
+            <th>Status</th>
+            <th>Title</th>
+            <th>Owner</th>
+            <th>Expires On</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contracts.map((contract) => (
+            <tr data-testid="contract-row" key={contract.contract_id}>
+              <td style={{ textAlign: "center" }}>
+                <span data-testid="status-badge"
+                  style={{
+                    display: "inline-block",
+                    backgroundColor: STATUS_COLORS[contract.status],
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                  }}
+                ></span>
+              </td>
+              <td>{contract.title}</td>
+              <td>{contract.owner_email}</td>
+              <td>{contract.expires_on}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+const Page = () => {
+  return (
+    <>
+      <h1>Contract Dashboard Page</h1>
+      <Contracts contracts={SEED_CONTRACTS} />
+    </>
+  );
+};
+
 export default function App() {
-  throw new Error('Not implemented — replace this with your solution.')
+  return <Page />;
 }
