@@ -146,6 +146,7 @@ const PROBLEMS = [
     language: "python",
     industry: "health-tech",
     tags: ["relational-data", "capacity-constraints", "audit-trail", "temporal-queries"],
+    companies: ["mongoose"],
     parts: 3,
     level: "senior"
   },
@@ -157,7 +158,7 @@ const PROBLEMS = [
     language: "python",
     industry: "health-tech",
     tags: ["state-machine", "metrics", "conversion-rate", "sla-monitoring", "clinical"],
-    companies: ["onsemble"],
+    companies: ["onsemble", "mongoose"],
     parts: 3,
     level: "senior"
   },
@@ -473,6 +474,7 @@ const PROBLEMS = [
     language: "golang",
     industry: "health-tech",
     tags: ["relational-data", "capacity-constraints", "audit-trail", "temporal-queries"],
+    companies: ["mongoose"],
     parts: 3,
     level: "senior"
   },
@@ -484,6 +486,7 @@ const PROBLEMS = [
     language: "golang",
     industry: "health-tech",
     tags: ["state-machine", "metrics", "conversion-rate", "sla-monitoring"],
+    companies: ["mongoose"],
     parts: 3,
     level: "senior"
   },

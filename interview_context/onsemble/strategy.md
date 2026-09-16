@@ -28,6 +28,10 @@
 
 ## Review loop
 
+- What improved?
+- What stayed weak?
+- What gets replayed next?
+
 ## Weekly rule
 
 End each week with: what improved, what stayed weak, what gets replayed next week.
