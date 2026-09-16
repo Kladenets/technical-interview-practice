@@ -282,7 +282,7 @@ const PROBLEMS = [
     language: "react",
     industry: "legal-tech",
     tags: ["useMemo", "sorting", "filtering", "inline-editing", "controlled-inputs"],
-    companies: ["onsemble"],
+    companies: ["onsemble", "link-logistics"],
     parts: 3,
     level: "senior"
   },
@@ -294,6 +294,7 @@ const PROBLEMS = [
     language: "react",
     industry: "ed-tech",
     tags: ["typescript", "useEffect", "useMemo", "event-streams", "optimistic-updates"],
+    companies: ["link-logistics"],
     parts: 3,
     level: "senior"
   },
@@ -371,7 +372,7 @@ const PROBLEMS = [
     language: "react",
     industry: "insurance-tech",
     tags: ["typescript", "useEffect", "useRef", "useMemo", "polling", "abort-controller", "compound-components"],
-    companies: ["onsemble"],
+    companies: ["onsemble", "link-logistics"],
     parts: 3,
     level: "senior"
   },
@@ -395,6 +396,7 @@ const PROBLEMS = [
     language: "typescript",
     industry: "ed-tech",
     tags: ["data-model", "aggregation", "time-series", "financial"],
+    companies: ["link-logistics"],
     parts: 3,
     level: "senior"
   },
