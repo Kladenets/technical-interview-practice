@@ -154,11 +154,78 @@ export function updateContractField(contractId, field, value) {
 }
 
 // ── Your implementation goes below ───────────────────────────────────────────
+import { useEffect, useMemo, useState } from "react";
 
 const Contracts = ({ contracts }) => {
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
+  
+  const filteredContracts = useMemo(() => {
+    return contracts.filter((contract) => {
+      if (statusFilter !== "all" && contract.status !== statusFilter) {
+        return false;
+      }
+
+      if (
+        debouncedSearchQuery &&
+        !contract?.title
+          .toLowerCase()
+          .includes(debouncedSearchQuery.toLowerCase())
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [contracts, statusFilter, debouncedSearchQuery]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 200);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
+
   return (
-    <>
-      <h2>Contracts List</h2>
+    <body>
+      <div
+        style={{
+          display: "flex",
+          marginBottom: "10px",
+          justifyContent: "start",
+          gap: "10px",
+        }}
+      >
+        <select
+          name="status filter"
+          data-testid="filter-status"
+          value={statusFilter}
+          onChange={(event) => setStatusFilter(event.target.value)}
+        >
+          <option value="all">All</option>
+          <option value="draft">Draft</option>
+          <option value="in_review">In Review</option>
+          <option value="approved">Approved</option>
+          <option value="active">Active</option>
+          <option value="expired">Expired</option>
+        </select>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search..."
+          data-testid="search-input"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
+        <button
+          type="button"
+          onClick={() => setSearchQuery("")}
+        >
+          Clear
+        </button>
+      </div>
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
           <tr style={{ backgroundColor: "lightgray" }}>
@@ -169,34 +236,37 @@ const Contracts = ({ contracts }) => {
           </tr>
         </thead>
         <tbody>
-          {contracts.map((contract) => (
-            <tr data-testid="contract-row" key={contract.contract_id}>
-              <td style={{ textAlign: "center" }}>
-                <span data-testid="status-badge"
-                  style={{
-                    display: "inline-block",
-                    backgroundColor: STATUS_COLORS[contract.status],
-                    width: "12px",
-                    height: "12px",
-                    borderRadius: "50%",
-                  }}
-                ></span>
-              </td>
-              <td>{contract.title}</td>
-              <td>{contract.owner_email}</td>
-              <td>{contract.expires_on}</td>
-            </tr>
-          ))}
+          {filteredContracts.map((contract) => {
+            return (
+              <tr data-testid="contract-row" key={contract.contract_id}>
+                <td style={{ textAlign: "center" }}>
+                  <span
+                    data-testid="status-badge"
+                    style={{
+                      display: "inline-block",
+                      backgroundColor: STATUS_COLORS[contract.status],
+                      width: "12px",
+                      height: "12px",
+                      borderRadius: "50%",
+                    }}
+                  ></span>
+                </td>
+                <td>{contract.title}</td>
+                <td>{contract.owner_email}</td>
+                <td>{contract.expires_on}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-    </>
+    </body>
   );
 };
 
 const Page = () => {
   return (
     <>
-      <h1>Contract Dashboard Page</h1>
+      <h1>Contracts</h1>
       <Contracts contracts={SEED_CONTRACTS} />
     </>
   );
